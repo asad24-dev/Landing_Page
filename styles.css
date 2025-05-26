@@ -197,3 +197,131 @@ a{
     align-items: center;
 }
 
+
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    /* Reduce overall horizontal padding */
+    .top,
+    .container,
+    .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .nav {
+        flex-direction: column; /* Stack logo and links */
+        align-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .nav h1 {
+        margin-bottom: 10px; /* Add some space if logo is above links */
+    }
+    .nav-links {
+        margin-left: 0; /* Remove the auto margin pushing it right */
+        flex-direction: column; /* Stack nav links */
+        align-items: center; /* Center stacked links */
+        gap: 10px;
+        padding-top: 10px;
+    }
+
+    .main-landing {
+        flex-direction: column; /* Stack text and image */
+        align-items: center; /* Center items when stacked */
+        padding-top: 40px;
+        padding-bottom: 40px;
+        height: auto; /* Allow height to adjust to content */
+        text-align: center; /* Center text in .main-text */
+    }
+    .main-text {
+        margin-bottom: 30px; /* Add space between text block and image */
+        align-items: center; /* Center button */
+    }
+    .main-text h1 {
+        font-size: 32px; /* Reduce font size */
+    }
+    .main-text p {
+        font-size: 16px;
+    }
+    .main-image {
+        margin-left: 0; /* Remove margin as it's centered now */
+    }
+    .main-image img {
+        width: 90%; /* Make image responsive */
+        max-width: 400px; /* Optional: prevent it from being too large */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .section-3 h1 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+    .container {
+        flex-direction: column; /* Stack cards */
+        align-items: center; /* Center cards */
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    .card1 {
+        width: 80%; /* Allow cards to take more width */
+        max-width: 250px; /* But not too much */
+    }
+    .card { /* The image within .card1 */
+        width: 100%; /* Make card image responsive within .card1 */
+        height: auto; /* Maintain aspect ratio */
+        max-width: 150px; /* Or adjust as needed for the card size */
+    }
+    .card2 { /* Text below card image */
+        max-width: 100%; /* Allow text to use full width of .card1 */
+    }
+
+    .quote {
+        padding: 40px 20px; /* Reduce padding significantly */
+        padding-bottom: 30px;
+    }
+    .quote-text {
+        font-size: 22px; /* Reduce font size */
+        text-align: center;
+    }
+    .author {
+        font-size: 18px;
+        margin-left: 0; /* Remove auto margin */
+        text-align: center; /* Center author text */
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .signup {
+        flex-direction: column; /* Stack text and button */
+        text-align: center; /* Center the text content */
+        gap: 20px; /* Reduce gap */
+        margin: 40px 20px; /* Reduce margins */
+        padding: 30px 20px; /* Add some internal padding for better look */
+        height: auto; /* Allow height to adjust */
+    }
+    .signup-text h2 {
+        font-size: 24px;
+    }
+    .signup-text p {
+        font-size: 16px;
+        margin-bottom: 15px; /* Space before button */
+    }
+    /* Footer already handled by the .footer rule at the top of media query */
+}
+
+/* You might want another breakpoint for very small screens if needed */
+/* For example:
+@media (max-width: 480px) {
+    .main-text h1 {
+        font-size: 28px;
+    }
+    .quote-text {
+        font-size: 18px;
+    }
+     Other fine-tuning for very small screens
+}
+*/
