@@ -197,12 +197,42 @@ a{
     align-items: center;
 }
 
+.hamburger-menu {
+    display: none; /* Hidden by default on larger screens */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px; /* Add some clickable area */
+    margin-left: auto; /* Pushes it to the right if .nav is flex */
+    z-index: 1001; /* Ensure it's on top */
+}
+
+.hamburger-menu .line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #e5e7eb; /* Or your desired icon color */
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Styles for when the menu is open (X icon animation) */
+.hamburger-menu.open .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger-menu.open .line:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.open .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 
 
 
 /* Responsive Design */
 
-@media (max-width: 768px) {
+@media (max-width: 1190px) {
     /* Reduce overall horizontal padding */
     .top,
     .container,
@@ -211,12 +241,12 @@ a{
         padding-right: 20px;
     }
 
-    .nav {
-        flex-direction: column; /* Stack logo and links */
-        align-items: center;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
+     /* .nav { */
+        /* flex-direction: column; Stack logo and links */
+        /* align-items: center; */
+        /* padding-top: 10px; */
+        /* padding-bottom: 10px; */
+    /* } */
     .nav h1 {
         margin-bottom: 10px; /* Add some space if logo is above links */
     }
@@ -272,7 +302,7 @@ a{
     }
     .card { /* The image within .card1 */
         width: 100%; /* Make card image responsive within .card1 */
-        height: auto; /* Maintain aspect ratio */
+        height: 10s0px; /* Maintain aspect ratio */
         max-width: 150px; /* Or adjust as needed for the card size */
     }
     .card2 { /* Text below card image */
@@ -310,8 +340,61 @@ a{
         font-size: 16px;
         margin-bottom: 15px; /* Space before button */
     }
-    /* Footer already handled by the .footer rule at the top of media query */
+
+    .nav {
+        flex-direction: row; /*Remove this if you want logo and hamburger on same line */
+        justify-content: space-between; /* Puts logo left, hamburger right */
+        align-items: center;
+        position: relative; /*For positioning the dropdown menu */
+        padding-left: 20px; /* Ensure padding is consistent if added to .top */
+        padding-right: 20px;
+    }
+
+    .nav-links {
+        display: none; /* Hide the links by default on mobile */
+        flex-direction: column;
+        position: absolute; /* Position it relative to .nav */
+        top: 100%; /* Position it right below the .nav bar */
+        left: 0;
+        right: 0;
+        background-color: #1F2937; /* Same as header background */
+        padding: 10px 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: add some shadow */
+        z-index: 1000; /* Ensure it's above other content but below hamburger if overlapping */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show the menu when .active class is added */
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        display: block; /* Make the whole list item clickable */
+        padding: 15px 20px;
+        color: #e5e7eb;
+    }
+    .nav-links li a:hover {
+        background-color: #303f50; /* Optional hover effect */
+    }
+
+    .hamburger-menu {
+        display: inline-block; /* Show the hamburger button on mobile */
+    }
+
+    /* Keep main content from shifting if nav height changes drastically */
+    .top {
+        padding-bottom: 0; /* Adjust if the open menu causes a big empty space */
+    }
+    .main-landing {
+      /* padding-top: calc(80px + NAV_HEIGHT_WHEN_OPEN); /* if you want to push content down */
+    }
 }
+    /* Footer already handled by the .footer rule at the top of media query */
+
 
 /* You might want another breakpoint for very small screens if needed */
 /* For example:

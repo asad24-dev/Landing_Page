@@ -7,15 +7,37 @@
     <title>Landing Page</title>
 </head>
 <body>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburgerButton = document.querySelector('.hamburger-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (hamburgerButton && navLinks) {
+            hamburgerButton.addEventListener('click', () => {
+                navLinks.classList.toggle('active'); // Toggles visibility of nav links
+                hamburgerButton.classList.toggle('open'); // Toggles X animation for hamburger
+
+                // Update ARIA attribute for accessibility
+                const isExpanded = navLinks.classList.contains('active');
+                hamburgerButton.setAttribute('aria-expanded', isExpanded);
+            });
+        }
+    });
+</script>
     <div class="top">
-    <div class = "nav">
-        <h1>Header Logo</h1>
-        <ul class = "nav-links">
-            <li><a href = "#">header link one</a></li>
-            <li><a href = "#">header link two</a></li>
-            <li><a href = "#">header link three</a></li>
-        </ul>
-    </div>
+        <div class="nav">
+            <h1>Header Logo</h1>
+            <button class="hamburger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#">header link one</a></li>
+                <li><a href="#">header link two</a></li>
+                <li><a href="#">header link three</a></li>
+            </ul>
+        </div>
     <div class = "main-landing">
         <div class="main-text">
             <h1>This website is awesome</h1>
@@ -28,7 +50,7 @@
             <img src = "./images/imgreal.jpg" alt="this is a placeholder">
         </div>
     </div>
-    </div>
+</div>
     <div class = "section-3">
         <h1>Some random information</h1>
         <div class="container">
